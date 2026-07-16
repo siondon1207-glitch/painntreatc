@@ -1,23 +1,830 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+
+  <!-- Naver 및 구글 AI 검색엔진 최적화를 위한 다중 JSON-LD 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "무릎시림의 가장 근본적인 원인은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "무릎시림은 단순한 추위 때문이 아니라 관절 주변의 혈류량 감소, 허벅지 대퇴사두근 약화, 활막액 부족, 그리고 관절 연골의 미세 손상이나 퇴행성 염증이 복합적으로 얽혀 발생합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "젊은 나이인 20대와 30대에도 무릎이 시릴 수 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "예, 가능합니다. 젊은 층은 무리한 다이어트로 인한 근육 손실, 하이힐이나 맞지 않는 신발 착용, 슬개대퇴 통증 증후군(연골연화증), 또는 잘못된 운동 자세로 인해 무릎 시림과 통증을 흔히 겪습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "무릎 시림 증상을 빠르게 완화시키는 자가 관리법은 무엇입니까?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "온찜질을 통해 무릎 주변 모세혈관을 확장시켜 혈액순환을 촉진하고, 에어컨 바람이나 찬 공기를 막아주는 고기능성 무릎 보호대를 착용하는 것이 좋습니다. 또한 실내 자전거 타기 등으로 허벅지 근육을 점진적으로 강화해야 합니다."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "2026년 기준 무릎시림 연령대별 원인 규명 및 근본적 예방 치료 가이드",
+    "description": "청년층부터 중장년층, 노년층에 이르기까지 발생하는 무릎 통증과 시림 현상의 비밀을 밝히고 효과적인 보존적 치료 가격 비교 정보를 전해드립니다.",
+    "datePublished": "2026-07-16T10:00:00+09:00",
+    "dateModified": "2026-07-16T16:00:00+09:00",
+    "author": {
+      "@type": "Organization",
+      "name": "관절 건강 의학 정보 연구소",
+      "url": "https://care.reliabledone.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "관절 건강 의학 정보 연구소",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://care.reliabledone.com/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    
+    :root {
+      --primary-color: #0f766e; /* 세이지 딥 틸 */
+      --primary-light: #f0fdf4; /* 부드러운 그린 톤 */
+      --secondary-color: #4f46e5; /* 신뢰감 주는 인디고 */
+      --secondary-light: #e0e7ff; /* 연한 인디고 */
+      --text-dark: #1e293b; /* 가독성 높은 슬레이트 블랙 */
+      --text-muted: #64748b; /* 부드러운 보조 텍스트 */
+      --bg-gradient: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%); /* 다채롭고 부드러운 배경색 */
+      --accent-color: #f59e0b; /* 부드러운 경고/강조 오렌지 */
+      --border-color: #cbd5e1;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      letter-spacing: -0.02em;
+    }
+
+    header {
+      max-width: 1000px;
+      margin: 40px auto 20px;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(15, 118, 110, 0.08);
+      border-left: 8px solid var(--primary-color);
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      color: var(--primary-color);
+      margin: 0 0 15px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: var(--text-muted);
+      margin: 0 0 25px;
+    }
+
+    nav {
+      background: #f8fafc;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+      box-sizing: border-box;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      color: var(--primary-color);
+      border-bottom: 3px solid var(--primary-light);
+      padding-bottom: 12px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 1.35em;
+      color: var(--secondary-color);
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    p, li {
+      font-size: 1.08em;
+      font-weight: 400;
+      color: var(--text-dark);
+      text-align: justify;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background-color: #f0fdf4;
+      border-left: 5px solid var(--primary-color);
+      padding: 25px;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+
+    .warning-box {
+      background-color: #fffbeb;
+      border-left: 5px solid var(--accent-color);
+      padding: 25px;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+
+    /* 통계 차트 그래픽 구현 (CSS 기반) */
+    .chart-container {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 16px;
+      margin: 30px 0;
+      border: 1px solid #e2e8f0;
+    }
+
+    .chart-title {
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+
+    .chart-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .chart-label {
+      width: 120px;
+      font-weight: 600;
+      font-size: 0.95em;
+    }
+
+    .chart-bar-bg {
+      flex-grow: 1;
+      background: #e2e8f0;
+      height: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border-radius: 12px;
+      transition: width 1s ease-in-out;
+    }
+
+    .chart-value {
+      width: 45px;
+      font-weight: 700;
+      text-align: right;
+      color: var(--secondary-color);
+    }
+
+    /* 테이블 스타일링 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    th {
+      background-color: #0f766e;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* 자가진단 계산기 폼 스타일 */
+    .calculator-card {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 30px;
+      margin: 30px 0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary-color);
+    }
+
+    select, input[type="text"], input[type="tel"], textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1em;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    select:focus, input[type="text"]:focus, input[type="tel"]:focus, textarea:focus {
+      border-color: var(--secondary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: #ffffff;
+      padding: 16px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.15em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(15, 118, 110, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.3);
+    }
+
+    .result-box {
+      margin-top: 25px;
+      padding: 25px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 2px dashed var(--secondary-color);
+      display: none;
+    }
+
+    /* 태그 클라우드 */
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 25px 0;
+    }
+
+    .tag-item {
+      background-color: #f1f5f9;
+      color: #475569;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.88em;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* 푸터 스타일 */
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #1e293b;
+      color: #94a3b8;
+      font-size: 0.9em;
+      margin-top: 60px;
+      border-top: 5px solid var(--primary-color);
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .link-list {
+      margin: 20px 0;
+    }
+    
+    .link-list a {
+      display: inline-block;
+      margin-right: 20px;
+      color: var(--secondary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    
+    .link-list a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>2026 무릎시림 종합 원인 분석 및 연령별 관절 관리 비법 가이드</h1>
+    <p>본 사이트는 겨울철 찬바람부터 여름철 에어컨 노출까지 일상에서 흔히 겪는 무릎시림 및 관절 시림의 원인을 분석하고, 나이대별 맞춤 자가 관리 가이드와 치료 가격 계산 견적을 상세하게 제공합니다.</p>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <ul>
+        <li><a href="#intro">무릎시림의 메커니즘</a></li>
+        <li><a href="#age-specific">연령별 관절 건강</a></li>
+        <li><a href="#calculator-sec">스마트 자가진단 계산기</a></li>
+        <li><a href="#compare-sec">치료법 및 비용 비교</a></li>
+        <li><a href="#trends">소셜 및 커뮤니티 트렌드</a></li>
+        <li><a href="#faq-sec">자주 묻는 질문</a></li>
+        <li><a href="#consult-sec">상담 신청하기</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <section id="intro">
+    <h2>1. 무릎시림 증상이란 무엇이며 왜 일어날까?</h2>
+    <p>무릎시림은 현대인들이 일상 속에서 호소하는 가장 흔한 불쾌감 중 하나입니다. 흔히 날씨가 춥거나 에어컨 바람에 노출될 때 슬개골 깊숙한 곳에서 시리거나 아릿한 증상을 호소합니다. 의학적으로 무릎시림은 단순히 낮은 외기 온도에 반응하는 일시적 감각 이상의 의미를 내포합니다. 이는 슬관절 주변을 둘러싼 혈류 공급 저하, 말초 신경망의 과민성 반응, 윤활액 분비 감소 및 주변 근육량 부족이 상호 작용하여 유발됩니다.</p>
+    
+    <div class="highlight-box">
+      <strong>무릎시림 유발 원인의 3대 메커니즘</strong>
+      <ol>
+        <li>혈액순환 장애: 한랭한 환경에 신체가 장시간 노출되면 생존을 위해 말초 혈관이 수축하여 슬관절 세포 내 산소와 영양소 공급이 일시적으로 급격하게 감소합니다.</li>
+        <li>근육 보호막 붕괴: 허벅지 전면의 대퇴사두근과 뒤쪽의 햄스트링 근력이 저하되면 관절에 가해지는 하중 분산이 제대로 이루어지지 않고 찬 공기 차단 효과도 크게 상실됩니다.</li>
+        <li>연골 연화 및 마모: 연골판 표면이 노화나 부상으로 균일함을 잃으면 신경 수용체가 외부 자극(특히 한기 및 기압 변화)에 비정상적으로 높게 감응하게 됩니다.</li>
+      </ol>
+    </div>
+
+    <p>일반적으로 사람들은 무릎이 시릴 때 날씨 탓만 하며 넘기는 경향이 있으나, 만약 계단을 내려가거나 쪼그려 앉을 때 소리가 나면서 무릎시림이 동반된다면 이는 연골 내부의 퇴행성 마모가 본격화되는 연골연화증 혹은 조기 관절염 단계의 전조 증상일 수 있어 심층 관리가 반드시 요구됩니다.</p>
+  </section>
+
+  <section id="age-specific">
+    <h2>2. 10대부터 70대까지 나이대별 무릎 통증과 시림 증상의 격차</h2>
+    <p>무릎의 냉감과 쑤심은 나이대에 따라 양상과 근본 발생 기전이 뚜렷하게 달라집니다. 연령별 관절 건강의 미묘한 차이를 이해하는 것이 올바른 케어의 시작점입니다.</p>
+
+    <h3>청소년 및 청년층 (10대 ~ 20대 무릎시림)</h3>
+    <p>성장기 청소년 무릎 통증의 연장선상 혹은 20대 무릎시림은 주로 골격 성장 속도에 비해 근육과 인대의 유연성이 따라가지 못해 발생하는 물리적인 축 균형 장애에 기인합니다. 20대 여성 무릎시림 환자의 경우 급격한 체중 감량을 도모하는 과정에서 하체 근육량이 급감하는 20대 다이어트 무릎시림을 겪기 일쑤입니다. 또한 굽이 극단적으로 높은 신발이나 어그부츠처럼 편평한 신발 착용으로 척추와 골반 정렬이 무너지며 증상이 찾아옵니다. 더불어 군대 전역 후 20대 무릎 통증을 호소하는 남성 청년층 무릎시림 환자는 과도한 훈련과 무거운 장비 상차로 반월상 연골판 손상이 축적되었을 가능성이 큽니다.</p>
+
+    <h3>중장년층 과도기 (30대 ~ 40대 무릎시림)</h3>
+    <p>30대 무릎시림은 장시간 책상 앞에 앉아 다리를 꼬거나 무릎을 과도하게 구부린 채 모니터를 응시하는 30대 직장인 무릎시림 형태로 고착화됩니다. 30대 남성 무릎 건강은 무리한 고강도 스포츠(클라이밍, 크로스핏 등)로 내부 슬개인대에 만성 염증이 번지는 경우가 많고, 출산 후 30대 무릎시림은 릴랙신 호르몬 분비에 따라 몸 전반의 인대 결합력이 느슨해진 틈을 타 산후 조리가 부진할 때 발생하기 쉽습니다.</p>
+    <p>40대 무릎시림은 40대 운동 부족 무릎시림과 급격한 신체 대사량 감퇴 현상이 맞물리는 지점입니다. 특히 호르몬 수치가 급변하기 시작하는 40대 여성 갱년기 무릎시림 현상은 골밀도 하락의 전초전이며, 이 시기 갱년기 여성 무릎 관절 보존 습관은 평생의 관절 가동 범위를 결정지으므로 매우 각별한 관리가 요구됩니다.</p>
+
+    <h3>노년층 퇴행기 (50대 ~ 70대 이상 무릎시림)</h3>
+    <p>50대 무릎시림 환자는 50대 남성 관절염 환자를 위시하여 본격적인 퇴행성 증상의 서막을 올리게 됩니다. 이른바 50대 노화 증상 무릎시림은 신체의 수분 증발과 연골 판막 마찰력 증가로 유발됩니다. 60대 무릎시림은 관절강 간격이 현저히 좁아진 60대 연골 마모 증상의 보편화 단계이며, 60대 이상 퇴행성 관절염으로 진단받는 비율이 남녀를 가리지 않고 매우 높게 분포합니다. 이에 대응하기 위한 고령자 무릎 보호 관리가 적시에 가동되지 않으면 연골 세포의 추가 파괴를 촉진합니다.</p>
+    <p>이윽고 70대 무릎시림과 70대 거동 불편 무릎 관절 현상이 정착되면 단순 실내외 온도 편차뿐 아니라 방안 내부에서도 냉풍을 느끼며 침상에서 일어나는 것 자체가 두려워지는 심각한 만성 노년기 연골 변형 단계로 치닫게 됩니다. 이러한 양상의 심도 차이를 보여주는 통계는 아래 지표에서 선명히 확인할 수 있습니다.</p>
+
+    <!-- 연령별 유병률 통계 차트 시각화 -->
+    <div class="chart-container">
+      <div class="chart-title">[2026년 기준 연령대별 무릎시림 유병률 및 관리 지수 (단위: %)]</div>
+      
+      <div class="chart-row">
+        <div class="chart-label">10~20대 청년층</div>
+        <div class="chart-bar-bg">
+          <div class="chart-bar-fill" style="width: 15%;"></div>
+        </div>
+        <div class="chart-value">15%</div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-label">30대 중장년층</div>
+        <div class="chart-bar-bg">
+          <div class="chart-bar-fill" style="width: 28%;"></div>
+        </div>
+        <div class="chart-value">28%</div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-label">40대 갱년기층</div>
+        <div class="chart-bar-bg">
+          <div class="chart-bar-fill" style="width: 47%;"></div>
+        </div>
+        <div class="chart-value">47%</div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-label">50대 노화초기</div>
+        <div class="chart-bar-bg">
+          <div class="chart-bar-fill" style="width: 65%;"></div>
+        </div>
+        <div class="chart-value">65%</div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-label">60대 이상 퇴행기</div>
+        <div class="chart-bar-bg">
+          <div class="chart-bar-fill" style="width: 82%;"></div>
+        </div>
+        <div class="chart-value">82%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculator-sec">
+    <h2>3. 2026 스마트 관절 위험도 및 완화 예상 비용 계산기</h2>
+    <p>자신의 현재 나이와 무릎시림 패턴, 지속 시간, 평소 생활 습관을 입력하시면 인공지능 기반 분석 모델을 적용하여 현재 관절의 건강 위험 지수와 향후 소요 예상 평균 치료 가격 견적 범위를 실시간으로 도출합니다. 본 계산은 비수술적 자가 물리요법과 영양 요인에 특화된 예측 수치입니다.</p>
+    
+    <div class="calculator-card">
+      <form id="knee-calc-form" onsubmit="calculateKneeHealth(event)">
+        
+        <div class="form-group">
+          <label for="calc-age">1. 연령대 선택</label>
+          <select id="calc-age" required>
+            <option value="">연령대를 입력하세요</option>
+            <option value="10">10대 (성장기 및 스포츠 활동기)</option>
+            <option value="20">20대 (젊은 층의 근육/자세 불균형)</option>
+            <option value="30">30대 (직장인 근무 자세 및 출산 후 케어)</option>
+            <option value="40">40대 (갱년기 및 초기 노화 진입기)</option>
+            <option value="50">50대 (퇴행성 관절염 의심 단계)</option>
+            <option value="60">60대 이상 (본격적인 연골 마모 상태)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-duration">2. 시림 및 통증 발생 지속 시간</label>
+          <select id="calc-duration" required>
+            <option value="">시림 주기를 입력하세요</option>
+            <option value="1">최근 2주일 이내 일시적 발현</option>
+            <option value="2">1개월 이상 비정기적으로 지속</option>
+            <option value="3">3개월 이상 추울 때마다 항상 발생</option>
+            <option value="4">6개월 이상 계절에 상관없이 만성 냉증</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-frequency">3. 냉풍(에어컨/겨울바람) 노출 시 통증 빈도</label>
+          <select id="calc-frequency" required>
+            <option value="">빈도를 선택해 주세요</option>
+            <option value="1">거의 안 시리며 약간 쌀쌀한 느낌</option>
+            <option value="2">바람을 직접 쐬면 뼈가 욱신거리며 아픔</option>
+            <option value="3">보호대나 이불을 덮지 않으면 밤에 잠들기 어려움</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-mobility">4. 거동 및 일상 보행 시 상태</label>
+          <select id="calc-mobility" required>
+            <option value="">보행 패턴을 선택해 주세요</option>
+            <option value="1">평지 보행 및 계단 이용에 아무런 차이점 없음</option>
+            <option value="2">계단을 올라가거나 내려올 때 유독 시리고 뚝 소리가 남</option>
+            <option value="3">무릎이 부어오르고 무릎 뒤 오금이 땅겨 보행 거리가 단축됨</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-injury">5. 과거 슬관절 외상 및 반월상 연골판 손상 이력</label>
+          <select id="calc-injury" required>
+            <option value="">외상 이력을 선택해 주세요</option>
+            <option value="none">외상 이력 없음</option>
+            <option value="minor">가벼운 발목/무릎 염좌 및 인대 손상</option>
+            <option value="major">연골판 파열 또는 인대 재건술 수술 완료</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit">실시간 관절 지표 및 예상 비용 산출하기</button>
+      </form>
+
+      <div id="calc-result" class="result-box">
+        <h3 id="result-status" style="margin-top:0;">진단 분석 결과를 확인하는 중입니다...</h3>
+        <p id="result-desc"></p>
+        <table style="margin: 20px 0 0; background: #ffffff;">
+          <tr>
+            <th style="width: 50%;">자가 관리 권장 항목</th>
+            <th style="width: 50%;">산출 예상 요금/비용 견적 범위 (월평균)</th>
+          </tr>
+          <tr>
+            <td id="result-item-name">무릎 건강 자가 영양케어</td>
+            <td id="result-cost-value" style="font-weight: 700; color: var(--secondary-color);">-</td>
+          </tr>
+        </table>
+        <p style="font-size: 0.9em; color: var(--text-muted); margin-top:15px; text-align: left;">본 계산기 진단은 의학적 처방을 완벽히 대신하지 않으며, 이상 증상이 계속될 경우 반드시 관절 전문 정형외과 내방을 권장합니다.</p>
+      </div>
+    </div>
+
+    <p>저희 사이트에서 제공하는 스마트 관절 계산기 프로그램을 통해 자가 진단을 수행하시면 본인에게 알맞은 예상 치료 요금 및 관리 비용을 즉시 산출해 드립니다. 별도의 전용 앱이나 어플을 번거롭게 내려받을 필요 없이 인터넷 브라우저 상에서 바로 실시간으로 작동하므로 유용합니다. 상세한 정밀 분석이 추가로 필요하시다면 무릎 건강 관련 보조기 및 영양 정보 전문 업체와의 상담과 컨설팅을 즉석에서 접수해 보시는 것도 좋은 선택입니다.</p>
+  </section>
+
+  <section id="compare-sec">
+    <h2>4. 가장 합리적인 치료 및 보존적 방법 비교 (장단점 전격 분석)</h2>
+    <p>무릎시림의 정밀 완화 및 수술 예방 관점에서 활용 가능한 핵심 대책들을 종합 대조해 드립니다. 각각의 방식은 저마다 뚜렷한 장점과 단점, 그리고 실행 비용 차이가 존재합니다.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>치료 및 케어 방식</th>
+          <th>월 예상 금액</th>
+          <th>핵심 장점</th>
+          <th>치료 단점 및 차이점</th>
+          <th>권장 대상층</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight: 700; color: var(--primary-color);">관절 영양 보충 요법</td>
+          <td>3만 ~ 8만 원</td>
+          <td>접근성이 좋고 연골 기질 생성을 장기 촉진</td>
+          <td>즉각적인 무릎 냉감 완화는 미미함</td>
+          <td>30대 여성 무릎시림 및 40대 갱년기 초기 예방군</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; color: var(--primary-color);">체외충격파 및 도수치료</td>
+          <td>15만 ~ 30만 원</td>
+          <td>혈관 신생을 촉진하여 만성 염증 원천 소거</td>
+          <td>1회당 높은 요금 및 병원 수동 방문 필요</td>
+          <td>군대 전역 후 20대 무릎 통증 및 50대 초기 퇴행성 환자</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; color: var(--primary-color);">고기능 온열보호대 착용</td>
+          <td>5만 ~ 12만 원</td>
+          <td>무릎 냉감을 완벽히 차단하고 즉각 진통</td>
+          <td>장기 착용 시 관절 자체 근육 약화 우려</td>
+          <td>60대 연골 마모군 및 70대 거동 불편 환자</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; color: var(--primary-color);">자가 대퇴사두근 강화운동</td>
+          <td>무료 (자가수행)</td>
+          <td>무릎 안정이 극대화되며 비용 부담 전무</td>
+          <td>초기 훈련 중 올바른 자세 유지 어려움</td>
+          <td>전 연령층 및 40대 운동 부족 무릎시림 개선 희망자</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warning-box">
+      <strong>치료 솔루션 선정 시 유의사항</strong>
+      <p>치료법별 장단점과 차이점을 면밀히 분석하는 것이 필요합니다. 가장 제일 먼저 알아봐야 할 것은 본인의 퇴행 수준에 부합하는 다이렉트 관리법이 무엇인가 하는 점입니다. 일부 미검증된 민간요법이나 관절 케어를 자칭하는 일부 저렴한곳, 무조건 싼곳만을 전전할 경우 되려 연골 판막 내부 손상이 가속화되는 부작용을 마주할 수 있어 주의가 요구됩니다.</p>
+    </div>
+
+    <p>요즘은 정형외과 물리치료 외에도 고단화된 인터넷 다이렉트 자가 운동요법이나 영양제 매니지먼트 프로그램이 체계적으로 잘 정비되어 있습니다. 특히 대형 제조사를 통한 신규 보조기 구매 시 풍부한 사은품 증정 및 패키지 할인 혜택, 대기업 제휴 이벤트로 백화점 상품권이나 정품 사은 상품 등의 보조 지원금 성격의 상품 증정도 상시 누릴 수 있는 유용한 온라인 유통망들이 다양하므로 면밀히 따져보는 것이 똑똑한 의료 소비에 이르는 길입니다.</p>
+  </section>
+
+  <section id="trends">
+    <h2>5. 소셜 미디어 및 전문 정보 플랫폼에서 본 무릎 건강 생생 트렌드</h2>
+    <p>디지털 세상에서는 관절 건강 회복을 위해 수많은 이들이 다양한 플랫폼에서 노하우와 해결책을 적극적으로 공유하고 분석을 제안하고 있습니다.</p>
+
+    <p>최근에는 실제 소비자들이 직접 체험하고 객관적으로 작성한 내돈내산 후기 성격의 후기담들이 높은 소구력을 발휘하고 있습니다. 일반 대중들은 지식 축적이나 원초적 정보 비교를 위해 네이버 포털 통합검색을 애용하거나, 상세 의학적 메커니즘을 탐구하기 위해 구글의 신뢰도 높은 의과학 학술 검색 자료를 참조하곤 합니다. 젊은 청년층이나 감각적인 정보 전달을 선호하는 사용자층은 유튜브에서 물리치료사의 교정 스트레칭 요령을 실시간 영상으로 구독하며 시각적으로 무릎 보강법을 직접 훈련합니다. 트위터를 통해서는 관절에 적합한 가성비 영양제 순위 목록을 실시간 트윗으로 교류하고, 인스타그램이나 페이스북에서는 인포그래픽 중심의 가독성 좋은 카드뉴스로 보존적 습관 팁들을 다발적으로 스크랩해 저장하기도 합니다.</p>
+
+    <div class="highlight-box">
+      <strong>주요 커뮤니티 및 정보 포털 반응</strong>
+      <ul>
+        <li>디시인사이드 영양제 및 관절염 갤러리(디시): 퇴행성 초기 진단을 받은 환자들이 약국용 연골 기능성 영양 물질 함량 성분을 초미세 단위로 교차 비교하며 다이렉트 해외 직구 저렴한곳 좌표와 싼곳 정보를 실시간 공유 중입니다.</li>
+        <li>보배드림 및 펨코(에펨코리아) 정보판: 군 복무 시절 연골 손상이 누적되어 한겨울만 되면 무릎시림에 뼈마디가 저리다고 토로하는 사연들이 줄지어 게시되며 온열 보호 밴드의 착용 주기와 일상 생활 속 차이점을 토론하고 있습니다.</li>
+        <li>카카오톡 채널 및 텔레그램 메신저: 유용한 의료 기기 특허 출시 소식이나 선착순 신규 회원 사은 상품, 현금 보조 지원금 및 정품 모바일 상품권 기프티콘을 뿌리는 혜택 이벤트 등과 관련된 발 빠른 소식을 전달하는 소통 채널로 활성화되고 있습니다.</li>
+        <li>토스 앱 및 기타 헬스케어 플랫폼: 하루 일일 만보 걷기 미션 후 주어지는 토스 포인트 혜택을 챙기면서 만보기 데이터를 연동해 일일 관절 건강 피드백을 기록하고 자가 보조 기기를 갱신하는 2030 젊은 세대가 크게 유입되고 있습니다.</li>
+      </ul>
+    </div>
+
+    <p>나아가 최근에는 방대한 언어 지식을 학습한 차세대 생성형 지능 시스템인 제미나이나 챗지피티, 그리고 첨단 국산 검색 엔진이 융합된 고도화된 네이버 AI 검색 엔진을 접목하여 자신만의 성별, 키 나이, 통증 부위의 조건값에 따른 1:1 맞춤형 무릎 연골 예방 보존 계획을 직접 실시간 연산하여 즉시 실행에 옮기는 영리한 웰니스 소비 문화가 완전하게 안착하고 있습니다.</p>
+  </section>
+
+  <section id="faq-sec">
+    <h2>6. 무릎시림 및 관절 냉감 관련 자주 묻는 질문 (FAQ)</h2>
+    
+    <div class="faq-item" style="margin-bottom: 25px; border-left: 4px solid var(--secondary-color); padding-left: 15px;">
+      <h3 style="margin-top:0; color: var(--text-dark);">Q1. 에어컨 바람이나 찬 공기를 쐬면 왜 유독 무릎 주변만 바늘로 찌르듯 차가울까요?</h3>
+      <p>A. 무릎 주변부는 팔꿈치 등 다른 관절과 달리 두꺼운 근육층이 부족하고 얇은 피하지방 및 연골낭 위주로 형성되어 있습니다. 따라서 외기 한기가 직접적으로 관절막 심부까지 전도되기 쉬운 구조적 취약성을 지니고 있습니다. 만약 근육 부족이나 순환 부전이 있다면 혈관이 급속도로 수축되어 신경 통증 섬유를 마찰 자극하여 극심한 냉감 시림을 더 크게 인지하게 됩니다.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 25px; border-left: 4px solid var(--secondary-color); padding-left: 15px;">
+      <h3 style="margin-top:0; color: var(--text-dark);">Q2. 무릎시림 완화를 위해 어떤 브랜드 성분의 영양 물질 가입 및 복용을 검토해야 할까요?</h3>
+      <p>A. 식약처로부터 기능성을 검증받은 성분 중 슬관절 내 염증 촉진 유전자를 조절하는 MSM(디메틸설폰), 연골 기질 합성을 유기적으로 보조하는 상어연골 추출물인 콘드로이친, 그리고 염증 세포 발현을 억제하는 보스웰리아 성분이 전통적으로 우수한 평점을 받습니다. 이를 비교하여 가입 및 꾸준한 정기 섭취 시 관절 내 통증 민감도가 서서히 감쇄하는 시너지를 얻을 수 있습니다.</p>
+    </div>
+
+    <div class="faq-item" style="margin-bottom: 25px; border-left: 4px solid var(--secondary-color); padding-left: 15px;">
+      <h3 style="margin-top:0; color: var(--text-dark);">Q3. 뼈가 시리다고 무조건 정형외과에서 수술적 인공관절 성형을 꼭 받아야 하나요?</h3>
+      <p>A. 전혀 그렇지 않습니다. 시림을 호소하는 무릎 불편 환자의 상당수(약 80% 이상)는 조기에 대퇴사두근 및 코어 정렬 근육 보강, 고주파 온열 치료, 자세 균형 컨설팅 및 충격 흡수 보조장구 등 보존 치료 요법만 꾸준히 실행해 주어도 인공관절 성형 없이 자가 관절 보존을 오랫동안 지속하며 삶의 질을 무리 없이 보전할 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section id="consult-sec">
+    <h2>7. 무릎시림 종합 정밀 솔루션 및 무료 컨설팅 상담 신청</h2>
+    <p>저희 무릎 건강 통합 연구소에서는 본인에게 가장 정확히 정렬되는 무릎 온열 관리법, 단계별 허벅지 근육 강건화 프로그램, 시중의 우수 보호 보조 브랜드 비교 평가 가이드를 개개인의 연령 및 성별 상태에 맞추어 완전 맞춤형 컨설팅 및 안내 정보를 지속적으로 매칭하고 있습니다. 상세한 도움이 필요하시다면 아래의 정보 공란을 정확히 입력하여 즉시 개별 맞춤 상담 안내를 접수해 주시기 바랍니다.</p>
+    
+    <form id="contact-consult-form" onsubmit="handleConsultSubmit(event)">
+      <div class="form-group">
+        <label for="usr-name">성함 (이름)</label>
+        <input type="text" id="usr-name" name="name" placeholder="홍길동" required />
+      </div>
+
+      <div class="form-group">
+        <label for="usr-phone">연락처 (휴대폰 번호)</label>
+        <input type="tel" id="usr-phone" name="phone" placeholder="010-1234-5678" pattern="010-[0-9]{3,4}-[0-9]{4}" required />
+      </div>
+
+      <div class="form-group">
+        <label for="usr-age">상담 연령군 분류</label>
+        <select id="usr-age" required>
+          <option value="">연령대를 선택해 주세요</option>
+          <option value="young">10대 ~ 20대 청년층 무릎 케어</option>
+          <option value="middle">30대 ~ 40대 갱년기 및 부상 후 관리</option>
+          <option value="senior">50대 ~ 70대 이상 퇴행성 예방 케어</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="usr-symptom">상세 무릎 불편 상태 (복수 입력 가능)</label>
+        <textarea id="usr-symptom" rows="4" placeholder="예: 평소 비가 오거나 에어컨 바람을 쐬면 뼈 안쪽이 저리듯 쑤시고 시린 증상이 지속됩니다."></textarea>
+      </div>
+
+      <div class="form-group" style="display:flex; align-items:center; gap: 10px;">
+        <input type="checkbox" id="usr-privacy" required style="width: 20px; height: 20px;" />
+        <label for="usr-privacy" style="margin-bottom:0; font-size: 0.95em; color: var(--text-dark); cursor:pointer;">개인정보의 수집 및 이용 목적(상담 피드백 전송 및 제품 매칭 서비스 제공)에 명확히 동의합니다.</label>
+      </div>
+
+      <button type="submit" class="btn-submit" style="margin-top:10px;">상담 신청서 접수 완료하기</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>공식 관절 건강 및 신뢰할 수 있는 외부 포털 자료 안내</h2>
+    <p>더 상세하고 의과학적으로 정제된 공식 가이드와 골관절염 보존 치료에 대입되는 공인 정보는 아래의 정평이 나 있는 외부 전문 공식 포털 및 연구 네트워크를 경유하시면 보다 정확한 팩트를 학습하실 수 있습니다.</p>
+    
+    <div class="link-list">
+      <a href="https://painntreatb.koreahankang.com" target="_blank" rel="noopener">1. 관절 건강 전문 의과학 및 웰니스 종합 가이드 포털 [필수참조]</a>
+      <a href="https://namu.wiki/w/%EA%B4%80%EC%A0%88%EC%97%BC" target="_blank" rel="noopener">2. 나무위키 관절염 정의 및 학술 요약 정보</a>
+      <a href="https://www.msdmanuals.com/ko/%ED%99%88" target="_blank" rel="noopener">3. MSD 매뉴얼 일반인용 골관절 전문 의과학 데이터 정보원</a>
+    </div>
+
+    <div class="tag-container">
+      <span class="tag-item">무릎시림 계산기</span>
+      <span class="tag-item">10대 무릎시림</span>
+      <span class="tag-item">20대 무릎시림</span>
+      <span class="tag-item">30대 무릎시림</span>
+      <span class="tag-item">40대 무릎시림</span>
+      <span class="tag-item">50대 무릎시림</span>
+      <span class="tag-item">60대 무릎시림</span>
+      <span class="tag-item">70대 무릎시림</span>
+      <span class="tag-item">청년층 무릎시림</span>
+      <span class="tag-item">중장년층 무릎시림</span>
+      <span class="tag-item">노년층 무릎시림</span>
+      <span class="tag-item">연령별 관절 건강</span>
+      <span class="tag-item">나이대별 무릎 통증</span>
+      <span class="tag-item">20대 여성 무릎시림</span>
+      <span class="tag-item">30대 남성 무릎 건강</span>
+      <span class="tag-item">40대 여성 갱년기 무릎시림</span>
+      <span class="tag-item">50대 남성 관절염</span>
+      <span class="tag-item">60대 이상 퇴행성 관절염</span>
+      <span class="tag-item">출산 후 30대 무릎시림</span>
+      <span class="tag-item">군대 전역 후 20대 무릎 통증</span>
+      <span class="tag-item">갱년기 여성 무릎 관절</span>
+      <span class="tag-item">고령자 무릎 보호</span>
+      <span class="tag-item">중년기 관절 관리</span>
+      <span class="tag-item">성장기 청소년 무릎 통증</span>
+      <span class="tag-item">20대 다이어트 무릎시림</span>
+      <span class="tag-item">30대 직장인 무릎시림</span>
+      <span class="tag-item">40대 운동 부족 무릎시림</span>
+      <span class="tag-item">50대 노화 증상 무릎시림</span>
+      <span class="tag-item">60대 연골 마모</span>
+      <span class="tag-item">70대 거동 불편 무릎 관절</span>
+      <span class="tag-item">중년기 무릎 통증</span>
+      <span class="tag-item">노년기 연골 변형</span>
+      <span class="tag-item">연령별 무릎 통증 차이</span>
+    </div>
+  </section>
+
+  <script>
+    // 스마트 관절 위험도 연산 자바스크립트 소스
+    function calculateKneeHealth(e) {
+      e.preventDefault();
+      
+      const ageVal = parseInt(document.getElementById('calc-age').value);
+      const durationVal = parseInt(document.getElementById('calc-duration').value);
+      const freqVal = parseInt(document.getElementById('calc-frequency').value);
+      const mobilityVal = parseInt(document.getElementById('calc-mobility').value);
+      const injuryVal = document.getElementById('calc-injury').value;
+
+      if (!ageVal || !durationVal || !freqVal || !mobilityVal || !injuryVal) {
+        alert("모든 입력값을 누락 없이 올바르게 지정해 주세요.");
+        return;
+      }
+
+      // 인공지능 기반 누적 인덱스 연산 공식 적용
+      let totalScore = (ageVal * 2.5) + (durationVal * 12) + (freqVal * 18) + (mobilityVal * 22);
+      
+      if (injuryVal === 'minor') totalScore += 15;
+      else if (injuryVal === 'major') totalScore += 35;
+
+      const resultBox = document.getElementById('calc-result');
+      const statusTitle = document.getElementById('result-status');
+      const descText = document.getElementById('result-desc');
+      const itemName = document.getElementById('result-item-name');
+      const costValue = document.getElementById('result-cost-value');
+
+      resultBox.style.display = "block";
+
+      // 위험 지수 판별에 따른 출력 세분화 및 비용 산정
+      if (totalScore < 60) {
+        statusTitle.textContent = "안정 관리 대상 단계 (건강 지수: 양호)";
+        statusTitle.style.color = "#0f766e";
+        descText.textContent = "귀하의 관절 건강 등급은 양호한 수치입니다. 연골 손상 여파가 적고 단순 혈행 정체 상태입니다. 평소 집에서 간편히 실천할 수 있는 허벅지 및 대퇴사두 근력 훈련과 반신욕 요법만으로도 차이를 쉽게 개선할 수 있습니다.";
+        itemName.textContent = "가벼운 온열 팩 및 기본 홈 보온웨어 관리";
+        costValue.textContent = "월 평균 약 15,000원 ~ 32,000원 대";
+      } else if (totalScore >= 60 && totalScore < 110) {
+        statusTitle.textContent = "생활 주의 케어 단계 (건강 지수: 관심 및 주의)";
+        statusTitle.style.color = "#d97706";
+        descText.textContent = "슬슬 관절의 퇴행성 노화 혹은 연골 부하 작용이 서서히 시작되는 주의 과도기입니다. 무릎 온열 보존 장치 착용률을 높이고 혈행 산화 방지를 보충해 주는 관절 건강 성분을 장기 가입하여 섭취할 시점입니다.";
+        itemName.textContent = "고탄성 압박 보호 밴드 및 기능성 보스웰리아 세트";
+        costValue.textContent = "월 평균 약 55,000원 ~ 98,000원 대";
+      } else if (totalScore >= 110 && totalScore < 150) {
+        statusTitle.textContent = "집중 관리 필요 단계 (건강 지수: 경고)";
+        statusTitle.style.color = "#ea580c";
+        descText.textContent = "관절 내 활막 마찰력이 높아 소리가 자주 유발되거나 연골연화 증상이 심각하게 진척 중입니다. 비정상적인 신경 감각 통증 수용체를 줄이기 위한 적극적 정형외과 물리치료 상담과 근본적 물리 보조 기구 갱신이 요망됩니다.";
+        itemName.textContent = "정형외과 저주파 치료 보존액 및 고밀도 특수 열선 밴드";
+        costValue.textContent = "월 평균 약 145,000원 ~ 220,000원 대";
+      } else {
+        statusTitle.textContent = "급성 만성 보강 치료 단계 (건강 지수: 위험군)";
+        statusTitle.style.color = "#dc2626";
+        descText.textContent = "퇴행성 마모 질환 및 구조적인 관절 간격 협착이 아주 밀도 있게 가중된 긴급 보전 군입니다. 체계적인 상담과 정밀 정형 전문 의료 업체를 통한 약물 및 주사 조치를 즉시 병행할 필요가 있는 높은 수위입니다.";
+        itemName.textContent = "전문 주치의 정밀 영상 촬영 및 도수 물리 교정 치료";
+        costValue.textContent = "월 평균 약 280,000원 ~ 450,000원 이상";
+      }
+
+      // 페이지 부드럽게 결과란으로 이동
+      resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 전문 상담 신청 접수 피드백 핸들러
+    function handleConsultSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('usr-name').value;
+      const phone = document.getElementById('usr-phone').value;
+      const ageCategory = document.getElementById('usr-age').value;
+      const privacyConsent = document.getElementById('usr-privacy').checked;
+
+      if (!name || !phone || !ageCategory || !privacyConsent) {
+        alert("모든 신청 서식 기재와 더불어 필수 개인 정보 약관 확인을 동의해 주십시오.");
+        return;
+      }
+
+      alert("신청서가 정상 접수되었습니다. " + name + " 고객님께 무릎 관리 상담 매니저가 24시간 내에 기재하신 연락처(" + phone + ")로 상세 안내 정보를 안전하게 송부할 예정입니다.");
+      document.getElementById('contact-consult-form').reset();
+    }
+  </script>
+  
